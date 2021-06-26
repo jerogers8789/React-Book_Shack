@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
 import API from '../utils/API';
-import {Jumbotron} from '../components/Jumbotron';
-import {BookCard} from '../components/BookCard';
+import {Jumbotron} from '../comps/jumbotron';
+import {BookCard} from '../comps/bookCard';
 
-class savedBook extends Component {
+class SavedBook extends Component {
   state = {books: []};
-  loadsavedBook = () => {
-    API.getsavedBook()
+  loadSavedBook = () => {
+    API.getSavedBook()
       .then(res => this.setState({books: res.data}))
       .catch(err => console.log(err))
   };
 
   deleteBook = event => {
     API.deleteBook(event.target.id)
-      .then(res => this.loadsavedBook())
+      .then(res => this.loadSavedBook())
       .catch(err => console.log(err))
   };
 
   componentDidMount() {
-    this.loadsavedBook()
+    this.loadSavedBook()
   }
 
   render() {
@@ -27,18 +27,17 @@ class savedBook extends Component {
         <Jumbotron
           title="My Books"
           lead="All of Your Favs One Location."
-          instructions="View your book at Google, or remove it..."
-          image="https://i0.wp.com/www.wayfaringviews.com/wp-content/uploads/2016/05/Last_Bookstore.jpg?ssl=1"
-        />
+          instructions="View your book at Google, or remove it altogether..."
+          image="https://i0.wp.com/www.wayfaringviews.com/wp-content/uploads/2016/05/Last_Bookstore.jpg?ssl=1"/>
+
         <BookCard
           books={this.state.books}
           buttonAction={this.deleteBook}
           buttonType="btn btn-danger mt-2"
-          buttonText="Delete Book"
-        />
+          buttonText="Delete Book"/>
       </div>
     )
   }
 }
 
-export default savedBook;
+export default SavedBook;
