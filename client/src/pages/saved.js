@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import API from '../utils/API';
-import {Jumbotron} from '../comps/jumbotron';
-import {BookCard} from '../comps/bookCard';
+import API from '../utils/api';
+import {Jumbotron} from '../comps/jumbotron/index';
+import {BookCard} from '../comps/BookCard';
 
 class SavedBook extends Component {
   state = {books: []};

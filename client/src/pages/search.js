@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {withAlert} from 'react-alert';
-import API from '../utils/API';
-import {Jumbotron} from '../components/Jumbotron';
-import {SearchForm} from '../components/SearchForm';
-import {BookCard} from '../components/BookCard';
+import API from '../utils/api';
+import {Jumbotron} from '../comps/jumbotron/index';
+import {SearchForm} from '../comps/SearchForm';
+import {BookCard} from '../comps/BookCard';
 
 const formatBookResults = googleApiResults => {
   const bookArray = [];
